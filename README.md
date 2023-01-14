@@ -1,135 +1,71 @@
-# PolarisBiosEditor v1.7.6
+#Atikmdag Patcher (AMD/ATI Pixel Clock Patcher)
 
-## Buy mining bios with performance timings! https://mining-bios.eu/
-**Polaris Bios Editor 3 PRO https://mining-bios.eu/product/polaris-bios-editor-3-pro-pbe-3-pro-performance-timings/**
+AMD/ATI Pixel Clock Patcher modifies the AMD/ATI video driver to allow higher resolutions and refresh rates by removing the 165 MHz pixel clock limit for single-link DVI and HDMI, the 330 MHz limit for dual-link DVI, and the 400 MHz limit for VGA.
 
-Bios mod guide: https://bitcointalk.org/index.php?topic=1954245.0
+Download: atikmdag-patcher.zip 
+Source: atikmdag-patcher-src.zip
 
-If you don't trust the EXE just build on Linux with ```sh build.sh```. Quick and easy.
+## Requirements:
+Windows Vista or later
+5000-series GPU or newer
+CrossFire: R9 280/280X and older cards require two CrossFire bridges if the pixel clock is greater than 300 MHz. This is only possible with cards that have two connectors. It will not work properly with more than two cards. Dual-GPU cards such as the 7990 will not work properly at higher pixel clocks.
 
-### Important: You need to disable SecureBoot / Activate CSM in your
-### Motherboard UEFI because the modification will make
-### the cryptographic signature invalid.
+## Compatibility:
+Version 1.4.14 is compatible with Catalyst 11.9 to Adrenalin 22.10.1. It can be used with future versions if it finds the limits you need.
+Riot Vanguard and FACEIT Anti-Cheat will not allow patched drivers to load.
 
-VirusTotal Report: https://www.virustotal.com/de/file/da96cd604093c686e8b1488726ae10a43a550aea5aaba0c0f308183b86f340f3/analysis/1505395469/
+## Getting started:
+Run atikmdag-patcher.exe. (If you only need the BIOS signature patch, rename it to atikmdag-patcher-bios.exe first.)
+If all limits are found, click "Yes" to patch and sign. If a limit is not found or if multiple matches are found, the patcher needs to be updated.
+Reboot.
+You can then add higher refresh rates using Custom Resolution Utility (CRU).
 
-0/58. If your AV warns you about a virus/trojan, consider it as false positive.
+To restore the unpatched driver, run the patcher again and click "Yes" to restore from backup.
 
-Fork from lojkinKot
+Unpatching is not required before upgrading drivers. Simply run the patcher again after installing the new driver.
 
-works on linux with mono, executable is build against .net 3.5
+## Options:
 
-one click timing feature should be used with care, it maybe not stable for you
+You can rename the .exe file to change certain options:
+atikmdag-patcher-bios.exe - Patch BIOS signature check only.
+atikmdag-patcher-sl.exe - Make dual-link DVI ports act as single-link DVI. Use this to go beyond 230 MHz pixel clock with single-link DVI monitors.
+atikmdag-patcher-dl.exe - Do not patch single-link DVI limit on dual-link DVI ports. Useful for 2560x1080 monitors.
+atikmdag-patcher-self.exe - Use self-signed certificate. Windows test mode is required: https://www.monitortests.com/testmode.zip
+Known issues:
+Legacy drivers may have issues with HDCP and video acceleration with the patch. Workarounds for video playback issues:
+Disable hardware acceleration in the Flash Player settings (right-click on any Flash video and click "Settings...").
+Use the Codec Tweak Tool to disable DXVA hardware acceleration under "Various Tweaks" (in the "Miscellaneous" section).
+Older cards require the "LCD standard" vertical blanking/total to reduce the memory clock when idle. Horizontal values can still be reduced if necessary. Newer cards can handle some lower values depending on the resolution and refresh rate.
+Older cards have a design limitation unrelated to the patch that causes video acceleration to scramble the screen if the vertical blanking/total is below standard with the video card's memory overclocked or with multiple monitors connected. Skype is known to trigger this problem. Either don't overclock the video card's memory, or use the "LCD standard" vertical blanking/total in CRU.
 
-please build the executable yourself or decompile the existing one if you don't trust
-### v1.7.6
-- Fixed Samsung 2
-- Fixed no supported memory found H5GC8H24AJ bug
-- Few small changes in code
-### v1.7.5
-- Added UberMix 3.3
-- Few small changes in code
-### v1.7.4
-- Fixed bug no supported memory found (K4G80325FC)
-- Old version bump in properties
-### v1.7.3
-- Added support for memory Samsung K4G80325FC
-- Added new device AMD Radeon RX 580 2048SP - 6FDF
-### v1.7.2
-- Fixed apply timings for Hynix memory
-- Added support for RX590
-- Added support for New Hynix memory H5GC8H24AJ
-- Added timing for New Hynix H5GC8H24AJ
-
-### v1.7.1
-- Updated Elpida Timing
-
-### v1.7.0
-- Added New timing for Hynix.
-- Added Clock Stretch Amount.
-- Added option for choosing timings on hynix Between Universal Hynix timing and Good hynix timing.
-- Universal Hynix timing work on: H5GC8H24MJ, H5GQ8H24MJ, H5GQ4H24AJ.
-
-### v1.6.9
-- Fixed UI (updated design)
-- Fixed and Updated all Timing's
-- Added New strap for Micron and Hynix
-- Added option for choosing timings on samsung between uber-mix 3.1 and 3.2, and on Micron between Good Micron timing and S Micron timing.
-- Added Icon
-- Added option for max. Mem. freq. (after one click timing patch button click automatically change max. mem. to 2300 MHz)
-
-### v1.6.8
-- Fixed Samsung Uber-Mix strap
-- Added support for Hynix H5GQ4H24AJ
-- Fixed fan mod option
-
-### v1.6.7
-- created solution and project files for ide
-- support for device id 0x67ef
-- better timings for micron memory
-- firmware signature test / firmware signature in ascii
-- editing of bios message (experimental)
-- online check for new versions
-- online display of developer notice
-
-### v1.6.6
-- support for rx550 device id 0x699F
-
-### v1.6.5
-- support up to 48 entrys in the timings table (more than 2 memory vendors)
-
-### v1.6.4
-- elpida timings fixed
-- K4G41325FS memory support
-
-### v1.6.3
-- timing modification starts now at 1500 instead of 1750
-- device id 67FF now also supported
-
-### v1.6.2
-- experimental: ubermix timings are now also applied to 4g SAMSUNG vram (K4G41325FC, K4G41325FE)
-- timing modification starts now at 1750 instead of 2000
-
-### v1.6.1
-- hynix memory H5GC8H24MJ now recognized (same timings as H5GQ8H24MJ)
-
-### v1.6
-- window resizes properly now
-- memory vendor detection
-- one click timing patch (samsung, hynix, elpida, micron)
-
-### v1.5
-- added FanControlMode setting
-- implemented some timing editor related code (not usable yet)
-
-### v1.4.1
-- replaced WPF components with Windows Forms to archive mono compatibility
-
-Contribution from Sebohe:
-
-### Build Dependencies
-
-Ubuntu 16.04.2:
-
-```
-sudo apt-get install mono-complete
-```
-
-Arch Linux:
-
-```
-yaourt -Sy mono48
-```
-### Building
-
-```
-sh build.sh
-```
-
-### Executing
-
-Just change your working directory to the PolarisBiosEditor and execute:
-
-```
-./run.sh
-```
+## Recent changes:
+1.4.14: Fix driver not found after installing Amernime Zone drivers. Added self-sign option and Info.txt. No changes to current drivers.
+1.4.13: Fixed low-resolution limit and restore from backup for very old drivers (11.9-12.4). No changes to later drivers.
+1.4.12: Updated for 21.9.1/21.9.2. Fixed CrossFire limit.
+1.4.11: Updated for 21.6.1-21.7.2. Fixed Radeon Software issues.
+1.4.10: Updated for 21.4.1.
+1.4.9: Fixed HDMI-DVI limit for 20.11.2 and HBlank limit for 20.5.1.
+1.4.8: Updated for 20.5.1.
+1.4.7: Find new SL-DVI/HDMI limit.
+1.4.6: Find new HDMI-DVI limit.
+1.4.5: Updated for 17.4.1. Find new DP-DVI/HDMI limit.
+1.4.4: Find BIOS signature check.
+1.4.3: Fixed HBlank limit for 16.12.1.
+1.4.2: Find 56 horizontal blanking (HBlank) limit.
+1.4.1: Fixed an issue that prevented the driver from loading correctly with earlier versions of Windows 10. This does not affect the anniversary update.
+1.4.0: Updated for 16.9.1. Changed the way the driver is located and patched. Replaced 640x480 limit with low-resolution limit. Fixed VGA limit for 32-bit.
+1.3.6: Find 10-resolution limit for Radeon Settings.
+1.3.5: Updated for 15.11 Crimson. Find 640x480 limit for Radeon Settings.
+1.3.4: Try to improve finding DVI/HDMI limit for newer drivers. Removed blue screen workaround for 14.6/14.7.
+1.3.3: Updated for 15.3. Fixed DVI/HDMI limit for 32-bit.
+1.3.2: Updated for 15.2. Fixed DVI/HDMI limit for 64-bit.
+1.3.1: Find 297 MHz HDMI 1.3+ limits. Run 3 times to properly repatch an existing installation.
+1.3: Removed blue screen workaround for 14.9. Fall back to self-signing if signing fails.
+1.2.7: Attempt to work around some antivirus false positives. Repatching is not necessary.
+1.2.6: Fixed AMD APP encoding for 14.6.
+1.2.5: Updated for 14.6. Fixed TMDS and VGA limits. Implemented workaround for SYSTEM_SERVICE_EXCEPTION blue screens.
+1.2.4: Updated for 14.4. Fixed SL limit on DL-DVI.
+1.2.3: Updated for 13.30 and upcoming 14.x releases.
+1.2.2: Find new HDMI limit for 12.9+.
+1.2.1: Find 400 MHz VGA limit.
+1.2: Test mode no longer required.
