@@ -1,9 +1,10 @@
-#Atikmdag Patcher (AMD/ATI Pixel Clock Patcher)
+# Atikmdag Patcher (AMD/ATI Pixel Clock Patcher)
+![image](https://user-images.githubusercontent.com/98732955/212462154-150a9698-fee0-40d0-bb49-dd2211bda970.png)
 
 AMD/ATI Pixel Clock Patcher modifies the AMD/ATI video driver to allow higher resolutions and refresh rates by removing the 165 MHz pixel clock limit for single-link DVI and HDMI, the 330 MHz limit for dual-link DVI, and the 400 MHz limit for VGA.
 
-Download: atikmdag-patcher.zip 
-Source: atikmdag-patcher-src.zip
++ Download: [atikmdag-patcher.zip](https://github.com/Ga678mer1/AMD-ATI-Pixel-Clock-Patcher)
++ Source: [atikmdag-patcher-src.zip](https://github.com/Ga678mer1/AMD-ATI-Pixel-Clock-Patcher)
 
 ## Requirements:
 + Windows Vista or later
