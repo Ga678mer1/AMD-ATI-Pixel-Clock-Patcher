@@ -27,17 +27,20 @@ To restore the unpatched driver, run the patcher again and click "Yes" to restor
 Unpatching is not required before upgrading drivers. Simply run the patcher again after installing the new driver.
 
 ## Options:
-You can rename the .exe file to change certain options:
-atikmdag-patcher-bios.exe - Patch BIOS signature check only.
-atikmdag-patcher-sl.exe - Make dual-link DVI ports act as single-link DVI. Use this to go beyond 230 MHz pixel clock with single-link DVI monitors.
-atikmdag-patcher-dl.exe - Do not patch single-link DVI limit on dual-link DVI ports. Useful for 2560x1080 monitors.
-atikmdag-patcher-self.exe - Use self-signed certificate. Windows test mode is required: https://www.monitortests.com/testmode.zip
++ You can rename the .exe file to change certain options:
++ atikmdag-patcher-bios.exe - Patch BIOS signature check only.
++ atikmdag-patcher-sl.exe - Make dual-link DVI ports act as single-link DVI. Use this to go beyond 230 MHz pixel clock with single-link DVI monitors.
++ atikmdag-patcher-dl.exe - Do not patch single-link DVI limit on dual-link DVI ports. Useful for 2560x1080 monitors.
++ atikmdag-patcher-self.exe - Use self-signed certificate. Windows test mode is required: https://www.monitortests.com/testmode.zip
 
 ## Known issues:
+
 Legacy drivers may have issues with HDCP and video acceleration with the patch. Workarounds for video playback issues:
-Disable hardware acceleration in the Flash Player settings (right-click on any Flash video and click "Settings...").
-Use the Codec Tweak Tool to disable DXVA hardware acceleration under "Various Tweaks" (in the "Miscellaneous" section).
++ Disable hardware acceleration in the Flash Player settings (right-click on any Flash video and click "Settings...").
++ Use the Codec Tweak Tool to disable DXVA hardware acceleration under "Various Tweaks" (in the "Miscellaneous" section).
+
 Older cards require the "LCD standard" vertical blanking/total to reduce the memory clock when idle. Horizontal values can still be reduced if necessary. Newer cards can handle some lower values depending on the resolution and refresh rate.
+
 Older cards have a design limitation unrelated to the patch that causes video acceleration to scramble the screen if the vertical blanking/total is below standard with the video card's memory overclocked or with multiple monitors connected. Skype is known to trigger this problem. Either don't overclock the video card's memory, or use the "LCD standard" vertical blanking/total in CRU.
 
 ## Recent changes:
@@ -75,3 +78,6 @@ Older cards have a design limitation unrelated to the patch that causes video ac
 A message from ToastyX:
 -----------------------
 Over the years, I have created various monitor-related software and provided support for free. I would like to continue providing updates and work on new ideas, but I need your support. If you find my software useful, please consider supporting me through Patreon: https://www.patreon.com/ToastyX
+
+![image](https://user-images.githubusercontent.com/98732955/212462280-b296e91f-f15f-4a7a-ab77-044d7876bc7d.png)
+
